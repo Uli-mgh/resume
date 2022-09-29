@@ -103,6 +103,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     // Next.js will attemp to regenerate the page:
     // When a request is made
     // every 1 hours
-    revalidate: 10,
+    revalidate: 20,
   };
 };
