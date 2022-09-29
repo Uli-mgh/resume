@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
+import Link from "next/link";
 type Props = {
   projects: Project[];
 };
@@ -27,7 +28,7 @@ function Projects({ projects }: Props) {
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#0F1645]/80">
         {/* Project */}
-        {projects?.map((p, index) => (
+        {projects?.reverse().map((p, index) => (
           <div
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
             key={p._id}
@@ -39,24 +40,31 @@ function Projects({ projects }: Props) {
               viewport={{ once: true }}
               src={urlFor(p.image).url()}
               alt=""
-              className="rounded-xl border border-gray-500 lg:w-2/4 lg:h-4/5 md:w-auto md:h-auto"
+              className="rounded-xl border border-gray-500 lg:w-2/4 lg:h-4/5 md:w-auto md:h-auto cursor-pointer"
             />
             <div className="flex items-center space-x-2 justify-center">
               {p?.technologies.map((tec) => (
                 // eslint-disable-next-line @next/next/no-img-element
+
                 <img
                   key={tec._id}
                   src={urlFor(tec.image).url()}
                   alt=""
-                  className="h-10 w-10"
+                  className="h-10 w-10 rounded-full "
                 />
               ))}
             </div>
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
-                <span className="underline decoration-[#0F1630]/50">
-                  {p.title}
-                </span>
+                <Link
+                  href={p?.linkToBuild}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="underline decoration-[#0F1630]/50 cursor-pointer">
+                    {p.title}
+                  </span>
+                </Link>
               </h4>
 
               <p className="text-lg text-center md:text-left">{p.summary}</p>

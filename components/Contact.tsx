@@ -26,29 +26,28 @@ const Contact = () => {
 
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl ">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col space-y-10 pt-20 mt-10">
+        <h4 className="md:text-4xl sm:visibility: hidden font-semibold text-center ">
           {/*  eslint-disable-next-line react/no-unescaped-entities */}
-          I'm always available,{" "}
-          <span className="decoration-gray-500 underline">Lets Talk</span>
+          Lets Talk
         </h4>
 
         <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-items-end">
             <PhoneIcon className="text-[#0F1685] h-7 w-7 animate-pulse" />
             <p className="text-2xl">+1234546</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-items-end">
             <EnvelopeIcon className="text-[#0F1685] h-7 w-7 animate-pulse" />
             <p className="text-2xl">ulicmgh@gmail.com</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-items-end">
             <MapPinIcon className="text-[#0F1685] h-7 w-7 animate-pulse" />
             <p className="text-2xl">123 my direccion</p>
           </div>
@@ -57,7 +56,7 @@ const Contact = () => {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col space-y-2 w-fit mx-auto"
+            className="flex flex-col space-y-2  w-screen md:w-fit mx-auto"
           >
             <div className="flex space-x-2">
               <input
